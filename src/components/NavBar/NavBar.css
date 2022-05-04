@@ -35,7 +35,7 @@ html{
 }
 
 .nav__li{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-decoration: none;
     color: white;
     font-weight: 600;
@@ -45,5 +45,7 @@ html{
 .nav__li:hover{
     color: #8FC93A;
 }
+
+
 
 

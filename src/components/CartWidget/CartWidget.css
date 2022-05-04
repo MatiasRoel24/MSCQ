@@ -1,0 +1,10 @@
+.icon-cart{
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 0rem;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
