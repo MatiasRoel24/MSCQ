@@ -1,0 +1,25 @@
+.contendor__count{
+    width: 30rem;
+    font-size: 2rem;
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.contador{
+    margin: 0 auto;
+}
+
+.contendor__botones{
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+}
+
+.btn-count{
+    width: 4rem;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+}

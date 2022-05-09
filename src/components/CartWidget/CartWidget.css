@@ -8,3 +8,8 @@
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
+.icon-cart:hover{
+    color: #8FC93A;
+    border-color: #8FC93A;
+}
