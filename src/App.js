@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './components/ItemListContainer/ItemListContainer.css';
 import './components/NavBar/NavBar.css';
 import './components/CartWidget/CartWidget.css';
@@ -11,6 +12,14 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 
 function App() { 
+
+  const [bool, setBool] = useState(true)
+  const [productos, setProductos] = useState([]) 
+  
+    useEffect(() => {
+     fetch('../../assets/DataProductos.json') /*  ???  */
+    .then( (resp) => console.log(resp) ) 
+  }, [])
   
   return (
     <div className="App">

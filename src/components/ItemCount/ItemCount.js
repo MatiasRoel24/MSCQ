@@ -6,7 +6,7 @@ function ItemCount({initial,stock,onAdd}) {
     const [date, setDate] = useState( Date() );
     
     const handleAdd = () =>{
-        if(count > initial){
+        if(count < stock){
             setCount (count + 1)
             setDate( Date() )
         }

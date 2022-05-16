@@ -12,9 +12,8 @@ function NavBar() {
                 <nav className="nav">
                     <ul className="nav__ul">
                         <li className="nav__li"><a>Inicio</a></li>
-                        <li className="nav__li"><a>Sobre Nosotros</a></li>
                         <li className="nav__li"><a>Productos</a></li>
-                        
+                        <li className="nav__li"><a>Nosotros</a></li>
                     </ul>
                 </nav>
 
