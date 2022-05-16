@@ -1,18 +1,18 @@
-/* import React from 'react'
-import { Item } from './Item' */ /* Para que sirve? {} */
+ import React from 'react'
+ import ItemCount from '../ItemCount/ItemCount'
+ import { Item } from '../Item/item'
+/* import { Item } from './Item'  */  
 
-/* export const ItemList = ({ prod }) =>{
+ export const ItemList = ({ productos }) =>{
+    console.log(productos)
+
+    const onAdd = () =>{
+        console.log('producto agregado al carrito')
+    }
     return (
-        producto.map( (prod) => */ /* MODULO: ItemList */
-        /* MODULO: ITEM */
-            {/* <div className="card_contenedor" key={prod.id}>
-                    <h2 className="card__titlo">Socio</h2>
-                    <img src="{url}" alt="Socio img" />
-                    <h3 className="card__subtitulo" >{prod.name}</h3>
-                    <h3 className="card__description">Color del socio: {prod.description}</h3>
-                    <h3 className="card__stock">Stock disponible: {prod.stock}</h3>
-                    <ItemCount initial={0} stock={prod.stock} onAdd={onAdd}/> */} {/* Como hago para que no supere el stock? */}
-            /* </div> */
-/*         )
-    )
-} */
+        productos.map( (productos) =>  
+           <Item productos = {productos} />
+     )
+)
+    }
+

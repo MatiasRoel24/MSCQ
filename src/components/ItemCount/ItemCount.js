@@ -7,14 +7,12 @@ function ItemCount({initial,stock,onAdd}) {
     
     const handleAdd = () =>{
         if(count < stock){
-            setCount (count + 1)
-            setDate( Date() )
+            setCount (count + 1)           
         }
     }
     const handleSubstract = () =>{
         if(count > initial){
             setCount (count - 1)
-            setDate( Date() )
         }
     }
 
@@ -28,7 +26,6 @@ function ItemCount({initial,stock,onAdd}) {
             <button className='btn-count' onClick={ handleAdd }>+</button>
             <button className='btn-count' onClick={ handleSubstract }>-</button>
         </div>
-        <p>Fecha: { date }</p>
     </div>
     
     </> 

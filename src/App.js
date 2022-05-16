@@ -9,24 +9,20 @@ import Titulo from './components/Titulo/Titulo';
 import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-
-
 function App() { 
 
-  const [bool, setBool] = useState(true)
+  /* const [bool, setBool] = useState(true)
   const [productos, setProductos] = useState([]) 
   
     useEffect(() => {
-     fetch('../../assets/DataProductos.json') /*  ???  */
-    .then( (resp) => console.log(resp) ) 
-  }, [])
+     fetch('./assets/DataProductos.json') */ /*  ???  */
+  /*   .then( (resp) => console.log(resp) ) 
+  }, []) */
   
   return (
     <div className="App">
-      <NavBar />
-      <Titulo titulo = 'Soy titulo de APP'/> {/* Soy titulo es prop */}
-      <Formulario />
       {/* <ItemCount /> */}
+      <NavBar />
       <ItemListContainer /> 
     </div> 
   );
