@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import ItemCount from "../../components/ItemCount/ItemCount";
 import { ItemList } from "../../components/ItemList/ItemList";
 
     const productos = [
-        {id: 1,name: 'Matias', description: 'red',stock: 10, url:'https://unsplash.com/es/fotos/A-NVHPka9Rk'},
-        {id: 2,name: 'Ezequiel', description: 'green',stock: 20, url:'https://picsum.photos/200'},
-        {id: 3,name: 'Rafael', description: 'yellow',stock: 30, url:'https://picsum.photos/200'}]  
+        {id: 1,name: 'Matias', description: 'red',stock: 10, url:'../../imgs/paisaje1.jpg'},
+        {id: 2,name: 'Ezequiel', description: 'green',stock: 20, url:'../imgs/paisaje2.jpg'},
+        {id: 3,name: 'Rafael', description: 'yellow',stock: 30, url:'../imgs/paisaje3.jpg'}]  
         
     const getFech = new Promise((resolve) => {
         setTimeout(() => {
