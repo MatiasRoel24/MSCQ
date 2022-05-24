@@ -1,5 +1,7 @@
-const ItemDetail = () => {
 
+
+const ItemDetail = ( {producto} ) => {
+    /* console.log(producto)  */
     return(
         <div>ItemDetail</div>
     )
