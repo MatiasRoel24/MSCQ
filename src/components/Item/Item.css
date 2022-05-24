@@ -1,0 +1,44 @@
+.card_contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 5rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 40rem;
+    height: 50rem;
+    margin: 2rem auto;
+}
+
+.card__titlo{
+    font-size: 2rem;
+    color: red;
+}
+.card__img{
+    width: 35rem;
+    height: 35rem;
+}
+.card__subtitulo{
+    color: green;
+}
+.card__description{
+    color: aqua;
+}
+.card__stock{
+    color: orange;
+}
+
+.card__btn{
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #053742;
+    border: 1px solid #053742;
+    padding: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}

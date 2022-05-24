@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { ItemList } from "../../components/ItemList/ItemList";
 
     const productos = [
-        {id: 1,name: 'Matias', description: 'red',stock: 10, url:'../../imgs/paisaje1.jpg'},
-        {id: 2,name: 'Ezequiel', description: 'green',stock: 20, url:'../imgs/paisaje2.jpg'},
-        {id: 3,name: 'Rafael', description: 'yellow',stock: 30, url:'../imgs/paisaje3.jpg'}]  
+        {id: 1,name: 'Bariloche', description: '$100',stock: 10, url:'assets/paisaje1.jpg'},
+        {id: 2,name: 'Cordoba', description: '$200',stock: 20, url:'assets/paisaje2.jpg'},
+        {id: 3,name: 'Tierra del fuego', description: '$300',stock: 30, url:'assets/paisaje3.jpg'}]  
         
     const getFech = new Promise((resolve) => {
         setTimeout(() => {

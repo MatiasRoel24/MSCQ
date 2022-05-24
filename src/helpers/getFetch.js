@@ -4,6 +4,12 @@ const productos = [
     {"id": 3,"name": "Rafael","description": "yellow","stock": 30,"url":"https://picsum.photos/200"}
 ]
 
+export const getFetch = (id) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const query = id ? productos.find(productos.id === id) : productos
+            resolve (query)
+        }, 2000)
+    })
+}
 
-
-export default productos
