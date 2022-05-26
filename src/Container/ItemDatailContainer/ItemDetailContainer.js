@@ -6,9 +6,10 @@ import { getFetch } from "../../helpers/getFetch";
 
 const ItemDetailContainer = () => {
 
+    const [producto, setProducto] = useState({})
     const { detalleId } = useParams()
+    
 
-    const [producto, setProducto] = useState([])
     useEffect(() => {
         getFetch( detalleId )
         .then(respuesta => setProducto(respuesta))
