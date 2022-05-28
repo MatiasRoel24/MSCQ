@@ -9,18 +9,12 @@ const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
     const { detalleId } = useParams()
 
-    
-
-
     useEffect(() => {
         getFetch( detalleId )
         .then(respuesta => setProducto(respuesta))
         .catch((err) => console.log(err))
     }, [])
-
-    /* console.log( producto )
-    console.log( detalleId ) */
-
+   
     return(
         <div>
             <ItemDetail producto= {producto}/>

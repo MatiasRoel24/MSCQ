@@ -1,28 +1,49 @@
 .contenedor__itemdetail{
-    padding-top: 7rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-   
+    gap: 8rem;
+    padding: 2rem 5rem;
 }
 
 .destino__contenedor{
+    padding-top: 7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
 }
 
-.idetail__titulo{
+.destino__titulo{
     margin-top: 2rem;
     font-size: 3rem;
     margin-bottom: 2rem;
-    
+}
+
+.idetail__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.idetail__titulo{
+    margin-top: 2rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid black;
+}
+
+.idetail__img{
+    height: 50rem;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .idetail__terreno{
-    border-top: solid 1px black;
     width: 20rem;
     text-align: center;
     margin-bottom: 2rem;

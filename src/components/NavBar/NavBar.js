@@ -13,10 +13,16 @@ function NavBar() {
                 </div>
 
                 <nav className="nav">
-                    <ul className="nav__ul">                        
-                        <li className="nav__li"><a className="nav__link" href="/">Inicio</a></li>
-                        <li className="nav__li"><a className="nav__link" href="/">Productos</a></li>
-                        <li className="nav__li"><a className="nav__link" href="/">Nosotros</a></li>
+                    <ul className="nav__ul">   
+                    <Link to='/'>                    
+                        <li className="nav__li nav__link">Inicio</li>
+                    </Link> 
+                    <Link to='/productos'>                    
+                        <li className="nav__li nav__link">Productos</li>
+                    </Link> 
+                    <Link to='/nosotros'>                    
+                        <li className="nav__li nav__link">Nosotros</li>
+                    </Link> 
                     </ul>
                 </nav>
 

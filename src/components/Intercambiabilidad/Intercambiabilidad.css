@@ -1,0 +1,25 @@
+ .btn__itemDetail{
+        background-color: #053742;
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        border: none;
+        cursor: pointer;
+        margin-top: 0rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        width: 25rem; 
+}
+
+.icon__btn-shop{
+    margin-left: 0.3rem;
+    font-size: 1.8rem;
+}
+
