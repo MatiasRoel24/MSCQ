@@ -8,7 +8,9 @@ const ItemDetailContainer = () => {
 
     const [producto, setProducto] = useState({})
     const { detalleId } = useParams()
+
     
+
 
     useEffect(() => {
         getFetch( detalleId )

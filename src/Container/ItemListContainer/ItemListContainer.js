@@ -19,7 +19,7 @@ function ItemListContainer() {
         }
 
         return (
-            <div>
+            <div >
                 { loading ? <div className="lds-dual-ring loader__centrado"></div>  // loading true
                     :
                     <div id="Productos" className="contenedor__ILC">

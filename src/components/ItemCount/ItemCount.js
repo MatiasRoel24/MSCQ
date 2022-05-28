@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function ItemCount({initial,stock,onAdd}) {
 
     const [count, setCount] = useState(0);
-    const [date, setDate] = useState( Date() );
+    /* const [date, setDate] = useState( Date() ); */
     
     const handleAdd = () =>{
         if(count < stock){
@@ -24,8 +24,9 @@ function ItemCount({initial,stock,onAdd}) {
         <p className='contador'>{count}</p>
         <div className='contendor__botones'>
             <button className='btn-count' onClick={ handleAdd }>+</button>
-            <button className='btn-count' onClick={ handleSubstract }>-</button>
+            <button className='btn-count btn-count--red' onClick={ handleSubstract }>-</button>
         </div>
+        <button onClick={ () => onAdd(count) } className="btn-grad">Agregar al carrito</button>
     </div>
     
     </> 
