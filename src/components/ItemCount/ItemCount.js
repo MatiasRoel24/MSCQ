@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function ItemCount({initial,stock,onAdd}) {
+function ItemCount({initial,stock,item,onAdd}) {
 
     const [count, setCount] = useState(0);
     /* const [date, setDate] = useState( Date() ); */
@@ -17,7 +17,6 @@ function ItemCount({initial,stock,onAdd}) {
         }
     }
 
-
     return(
     
     <>   
@@ -26,10 +25,8 @@ function ItemCount({initial,stock,onAdd}) {
         <div className='contendor__botones'>
             <button className='btn-count' onClick={ handleAdd }>+</button>
             <button className='btn-count btn-count--red' onClick={ handleSubstract }>-</button>
+            <button onClick={() => {onAdd(item)}}>Agregar al carrito</button>
         </div>
-        {/* <Link to="/cart">
-        <button onClick={ () => onAdd(count) } className="btn-grad">Agregar al carrito</button>
-        </Link> */}
     </div>
     
     </> 

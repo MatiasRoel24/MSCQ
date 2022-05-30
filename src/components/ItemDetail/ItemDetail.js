@@ -1,14 +1,18 @@
-import InputClima from '../InputClima/InputClima'
+import { useCartContext } from '../../context/CartContext'
 import Intercambiabilidad from '../Intercambiabilidad/Intercambiabilidad'
 import ItemCount from '../ItemCount/ItemCount'
-/* import { Link } from 'react-router-dom' */
 
 const ItemDetail = ( {producto} ) => {
     /* console.log(producto)  */
 
+    const { addToCart, cartList } = useCartContext()
+
     const onAdd = (cant) => {
         console.log('La cantidad es ' + cant)
+        addToCart( {...producto, cantidad: cant } )
     }
+
+    console.log(cartList)
     
     return(
         <div>
@@ -26,7 +30,7 @@ const ItemDetail = ( {producto} ) => {
                     <h2 className="idetail__descripcion">{producto.description}</h2>
                     <h2 className="idetail__precio">El precio es: <span className='idetail__precio--span'>${producto.precio}</span> </h2>
                     <h2 className="idetail__stock">Pasajes disponibles: {producto.stock}</h2>
-                    <ItemCount initial={0} stock={producto.stock} onAdd={onAdd}/> 
+                    <ItemCount initial={0} stock={producto.stock} item={ producto } onAdd={ addToCart } /> 
                     <Intercambiabilidad />
                 </div>
                 {/* <Link to = '/cart'> */}
