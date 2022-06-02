@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext'
 
 function ItemCount({initial,stock,item,onAdd}) {
 
     const [count, setCount] = useState(0);
+    const { addToCart} = useCartContext()
     /* const [date, setDate] = useState( Date() ); */
     
     const handleAdd = () =>{
@@ -17,6 +18,7 @@ function ItemCount({initial,stock,item,onAdd}) {
         }
     }
 
+   
     return(
     
     <>   
@@ -25,8 +27,8 @@ function ItemCount({initial,stock,item,onAdd}) {
         <div className='contendor__botones'>
             <button className='btn-count' onClick={ handleAdd }>+</button>
             <button className='btn-count btn-count--red' onClick={ handleSubstract }>-</button>
-            <button onClick={() => {onAdd(item)}}>Agregar al carrito</button>
         </div>
+            <button className='btn-agregarcarrito' onClick={() => addToCart(item)}>Agregar al carrito</button>
     </div>
     
     </> 

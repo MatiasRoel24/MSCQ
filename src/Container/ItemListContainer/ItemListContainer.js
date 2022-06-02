@@ -14,9 +14,9 @@ function ItemListContainer() {
              
         },[]) /* Que se ejecute una sola ves [] */
 
-        const onAdd = () =>{
+        /* const onAdd = () =>{
             console.log('producto agregado al carrito')
-        }
+        } */
 
         return (
             <div >

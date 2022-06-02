@@ -7,17 +7,24 @@ import { getFetch } from "../../helpers/getFetch";
 const ItemDetailContainer = () => {
 
     const [producto, setProducto] = useState({})
+    const [loading, setloading] = useState(true)    
     const { detalleId } = useParams()
 
     useEffect(() => {
         getFetch( detalleId )
         .then(respuesta => setProducto(respuesta))
         .catch((err) => console.log(err))
+        .finally(() => setloading(false))
     }, [])
    
     return(
         <div>
-            <ItemDetail producto= {producto}/>
+            { loading ? <div className="lds-dual-ring loader__centrado"></div>  // loading true
+                    :
+                    <div className="contenedor__ILC">
+                        <ItemDetail producto= {producto}/>
+                    </div>
+            } 
         </div>
     )
 }

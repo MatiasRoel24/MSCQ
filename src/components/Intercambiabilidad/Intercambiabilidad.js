@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import CartWidget from "../CartWidget/CartWidget";
-
 /* Funcion */
 const InputCount= ()=> {
 
@@ -28,25 +26,28 @@ const InputCount= ()=> {
 
 /* Funcion */
 const ButtonCount= ({handleInter})=> {
+    
     return <button 
                 className="btn__itemDetail" 
-                onClick={handleInter}
+                onClick={handleInter()}
             >Agregar al carrito</button>
 
 }
 
 const Intercambiabilidad = () => {
+    
 
     const [inputType, setInputType ] = useState('button')
 
-    const handleInter=()=>{
+    const handleInter=(item,onAdd)=>{
         setInputType('input')
     }
     
     return (
         <div>
             {
-                inputType === 'button' ? 
+                inputType === 'button' ?
+                 
                     <ButtonCount handleInter={handleInter} />
                 : 
                     <InputCount />

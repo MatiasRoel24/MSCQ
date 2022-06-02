@@ -6,28 +6,69 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ( { children } ) => {
 
-    const [cartList, setcartList] = useState([])
+    const [cartItems, setCartItems] = useState([])
 
-    function addToCart(item) {
-        setcartList([
-            ...cartList,
-            item
-        ])
+    const addToCart = (product)  => {  
+
+        const inCart = cartItems.find(
+            (productInCart) => productInCart.id === product.id
+        );
+
+        if(inCart){
+            setCartItems(
+                cartItems.map((productosEnCarrito) =>{
+                    if(productosEnCarrito.id === product.id){
+                        return{...product, amount: productosEnCarrito.amount + 1}
+                    }
+                    else{
+                        return productosEnCarrito;
+                    }
+                })
+            )
+        }
+        else{
+            setCartItems([...cartItems, {...product, amount:1}])
+        }
     }
 
-   /*  const eliminarItem = (id) =>{
+    /* function contadorCarrito(cartList){
+        cartList.length
+    } */
 
+
+     const deleteItemToCart = (product) =>{
+        const inCart = cartItems.find(
+            (productInCart) => productInCart.id === product.id
+        );
+
+        if(inCart.amount === 1){
+            setCartItems(
+                cartItems.filter( productInCart => productInCart.id !== product.id)
+            )
+        }
+        else
+        {
+            setCartItems((productInCart => {
+                if(productInCart.id === product.id){
+                    return{...inCart, amount : inCart.amount-1}
+                }
+                    else {
+                        return productInCart
+                    }
+            }))
+        }
     }
- */
+ 
     const vaciarCarrito = () =>{
-        setcartList([])
+        setCartItems([])
     }
 
 
     return(
         <CartContext.Provider value={ { 
-            cartList,
+            cartItems,
             addToCart,
+            deleteItemToCart,
             vaciarCarrito
          }}>
             { children }
