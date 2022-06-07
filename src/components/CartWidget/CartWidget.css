@@ -1,15 +1,28 @@
+.container__cartwidget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .icon-cart{
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
     margin-top: 0rem;
     padding: 5px;
-    border: 1px solid white;
-    border-radius: 0.5rem;
     cursor: pointer;
+    position: absolute;
 }
 
 .icon-cart:hover{
     color: #8FC93A;
     border-color: #8FC93A;
+}
+
+.productNumber{
+    position: relative;
+    top: 1rem;
+    left: 1.8rem;
+    color: white;
+    text-decoration: none;
 }

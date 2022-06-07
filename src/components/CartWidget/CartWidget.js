@@ -1,18 +1,19 @@
-import { useCartContext } from '../../context/CartContext'
+import { useCartContext } from "../../context/CartContext" 
+import React,{ useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 function CartWidget() {
-    /* const { contadorCarrito } = useCartContext()
 
-    const cantidad = () =>
-        contadorCarrito()
-    } */
+    const { cantidadTotal } = useCartContext() 
 
-   /*  console.log(cantidad) */
+
     return(
         <div>
             <Link to = '/cart'>
-                <i className="fa-solid fa-cart-shopping icon-cart"></i>
+                <div className="container__cartwidget">
+                    <i className="fa-solid fa-cart-shopping icon-cart"></i>
+                    <h1 className="productNumber">{cantidadTotal() !== 0 && cantidadTotal()}</h1>
+                </div>
             </Link> 
         </div>
     )

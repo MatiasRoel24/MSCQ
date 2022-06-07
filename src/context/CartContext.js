@@ -6,69 +6,52 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ( { children } ) => {
 
-    const [cartItems, setCartItems] = useState([])
+    const [cartList, setCartList] = useState([])
 
-    const addToCart = (product)  => {  
 
-        const inCart = cartItems.find(
-            (productInCart) => productInCart.id === product.id
-        );
+    function addToCart(item) { 
+        const index = cartList.findIndex(product => product.id === item.id) // -1 sino está 
+        if (index !== -1) {
+            const cantidadVieja = cartList[index].cantidad
+            console.log(cantidadVieja)
 
-        if(inCart){
-            setCartItems(
-                cartItems.map((productosEnCarrito) =>{
-                    if(productosEnCarrito.id === product.id){
-                        return{...product, amount: productosEnCarrito.amount + 1}
-                    }
-                    else{
-                        return productosEnCarrito;
-                    }
-                })
-            )
-        }
-        else{
-            setCartItems([...cartItems, {...product, amount:1}])
-        }
+            cartList[index].cantidad = cantidadVieja + item.cantidad
+            console.log(cartList[index].cantidad)
+            
+            setCartList( [ ...cartList ] )
+        } else {
+            setCartList( [
+                ...cartList,
+                item
+            ] )             
+        }       
     }
 
-    /* function contadorCarrito(cartList){
-        cartList.length
-    } */
-
-
-     const deleteItemToCart = (product) =>{
-        const inCart = cartItems.find(
-            (productInCart) => productInCart.id === product.id
-        );
-
-        if(inCart.amount === 1){
-            setCartItems(
-                cartItems.filter( productInCart => productInCart.id !== product.id)
-            )
-        }
-        else
-        {
-            setCartItems((productInCart => {
-                if(productInCart.id === product.id){
-                    return{...inCart, amount : inCart.amount-1}
-                }
-                    else {
-                        return productInCart
-                    }
-            }))
-        }
+    
+    const removeItem =(id)=> {
+        setCartList(cartList.filter(prod => prod.id !== id ))
     }
- 
-    const vaciarCarrito = () =>{
-        setCartItems([])
+
+    const cantidadTotal = () => {
+        return cartList.reduce((contador, prod) => contador += prod.cantidad ,0)
+    }
+
+    const precioTotal = () => {
+        return cartList.reduce((contador, prod) => contador + (prod.cantidad * prod.precio) ,0)
+    }
+
+    const vaciarCarrito = () => {
+        setCartList([])
     }
 
 
     return(
         <CartContext.Provider value={ { 
-            cartItems,
+            cartList,
             addToCart,
-            deleteItemToCart,
+            removeItem,
+            cantidadTotal,
+            precioTotal,
             vaciarCarrito
          }}>
             { children }

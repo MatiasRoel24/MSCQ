@@ -1,22 +1,46 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../../components/ItemList/ItemList";
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
+
 import { getFetch } from "../../helpers/getFetch";
 
 function ItemListContainer() {
+
+    
         const [productos, setproductos] = useState([]) // Hacer persistente los valores
+        const [producto, setproducto] = useState({}) // Hacer persistente los valores
         const [loading, setloading] = useState(true)
+        
+        //itemDetailContainer
+        /* useEffect(() => {
+            const db = getFirestore()
+            const dbQuery = doc(db, 'items', 'In2tOJUmxc18iEgylhbU')
+            getDoc(dbQuery)
+            .then(resp => setproducto( {id: resp.id, ...resp.data() } ) )
+        }, []) */
+        
+        // itemListContainer
+        useEffect(() => {
+            const db = getFirestore()
+            
 
-        useEffect(() => { // me ayuda a que se ejecute despues del return, no bloquea al render
-            getFetch()/* () */ // fetch llamada a una api
-            .then(respuesta => setproductos(respuesta)) // Capturo la respuesta que me devuelve la promise
+            const queryCollection = collection(db, 'items')
+            getDocs(queryCollection)
+            .then(resp => setproductos( resp.docs.map(item => ( {id: item.id, ...item.data() } ) ) ))
             .catch((err) => console.log(err))
-            .finally(() => setloading(false)) // al ser falso me cambia el estado de los productos
-             
-        },[]) /* Que se ejecute una sola ves [] */
+            .finally(() => setloading(false))
+        }, [])
 
-        /* const onAdd = () =>{
-            console.log('producto agregado al carrito')
-        } */
+        
+
+
+        /* useEffect(() => { 
+            getFetch()
+            .then(respuesta => setproductos(respuesta)) 
+            .catch((err) => console.log(err))
+            .finally(() => setloading(false)) 
+             
+        },[])  */
 
         return (
             <div >

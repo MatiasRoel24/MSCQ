@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext'
 
 import ItemCount from '../ItemCount/ItemCount'
@@ -6,15 +8,17 @@ const ItemDetail = ( {producto} ) => {
     /* console.log(producto)  */
 
     const { addToCart, cartList } = useCartContext()
+    const [isItemCount, setIsItemCount] = useState(true)
+    
 
     const onAdd = (cant) => {
+        console.log(cant)
         addToCart( {...producto, cantidad: cant } )
+        setIsItemCount(false)
     }
-
-    
     
     return(
-        <div>
+        <div key={producto.id}>
             <div className='destino__contenedor'>
                     <h1 className="destino__titulo">Destino: {producto.name}</h1>
                     <i className={producto.icono}></i>
@@ -27,9 +31,18 @@ const ItemDetail = ( {producto} ) => {
                     <h2 className="idetail__descripcion">{producto.description}</h2>
                     <h2 className="idetail__precio">El precio es: <span className='idetail__precio--span'>${producto.precio}</span> </h2>
                     <h2 className="idetail__stock">Pasajes disponibles: {producto.stock}</h2>
-                    <ItemCount initial={0} stock={producto.stock} item={ producto } onAdd={ addToCart } /> 
-                    
-                    {/* <Intercambiabilidad item={ producto } onAdd={ addToCart } /> */}
+                    {isItemCount ? 
+                    <ItemCount initial={1} stock={producto.stock} onAdd={onAdd}/> 
+                    :  
+                    <>
+                        <Link to='/'>
+                            <button className="btn btn-outline-primary">Seguir Commprando</button>
+                        </Link>
+                        <Link to='/cart'>
+                            <button className="btn btn-outline-success">Ir al carrito</button>
+                        </Link>
+                    </>
+                }
                 </div>
         
             </div>
