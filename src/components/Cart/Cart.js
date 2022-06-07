@@ -64,9 +64,9 @@ const Cart = () => {
             <div className='cart'> 
             {cartList.length === 0 ? 
                 <div className="container mt-5">
-                    <label className="alert alert-warning">NO HAY PRODUCTOS EN EL CARRITO</label><br />
+                    <label className="">NO HAY PRODUCTOS EN EL CARRITO</label><br />
                     <Link to='/productos'>
-                        <button className='btn btn-outline-primary'>Seleccionar productos</button>
+                        <button className=''>Seleccionar productos</button>
                     </Link>
                 </div>
             :
@@ -76,12 +76,12 @@ const Cart = () => {
                                                         <img src={product.foto} style={{width: 60}} />
                                                         {product.name} - price: {product.price} - cantidad: {product.cantidad}
                                                         {' '}
-                                                        <button className='btn btn-outline-primary' onClick={()=> removeItem(product.id)}> X </button> 
+                                                        <button className='' onClick={()=> removeItem(product.id)}> X </button> 
                                                     </li>
                                                 </div>)}
                     <h2>El precio total es: {precioTotal()}</h2>
-                    <button onClick={vaciarCarrito} className='btn btn-outline-danger'>Vaciar carrito</button>
-                    <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
+                    <button onClick={vaciarCarrito} className=''>Vaciar carrito</button>
+                    <button  className=""  onClick={generarOrden} >Terminar Compra</button>
                     
                    
                 </>

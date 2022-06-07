@@ -36,10 +36,10 @@ const ItemDetail = ( {producto} ) => {
                     :  
                     <>
                         <Link to='/'>
-                            <button className="btn btn-outline-primary">Seguir Commprando</button>
+                            <button className="">Seguir Comprando</button>
                         </Link>
                         <Link to='/cart'>
-                            <button className="btn btn-outline-success">Ir al carrito</button>
+                            <button className="">Ir al carrito</button>
                         </Link>
                     </>
                 }
