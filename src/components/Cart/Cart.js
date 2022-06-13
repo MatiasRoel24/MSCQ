@@ -61,31 +61,40 @@ const Cart = () => {
 
     return(
         <div>
-            <div className='cart'> 
-            {cartList.length === 0 ? 
-                <div className="container mt-5">
-                    <label className="">NO HAY PRODUCTOS EN EL CARRITO</label><br />
-                    <Link to='/productos'>
-                        <button className=''>Seleccionar productos</button>
-                    </Link>
-                </div>
-            :
-                <>
-                    {cartList.map(product =>    <div key={product.id} >
-                                                    <li >
-                                                        <img src={product.foto} style={{width: 60}} />
-                                                        {product.name} - price: {product.price} - cantidad: {product.cantidad}
-                                                        {' '}
-                                                        <button className='' onClick={()=> removeItem(product.id)}> X </button> 
-                                                    </li>
-                                                </div>)}
-                    <h2>El precio total es: {precioTotal()}</h2>
-                    <button onClick={vaciarCarrito} className=''>Vaciar carrito</button>
-                    <button  className=""  onClick={generarOrden} >Terminar Compra</button>
+            <div> 
+              {cartList.length === 0 ? 
+                  <div className="cartnot">
+                      <label className="cartnot__title">Usted no tiene productos en el carrito</label>
+                      <Link to='/productos'>
+                          <button className='cartnot__select'>Seleccionar productos</button>
+                      </Link>
+                  </div>
+              :
+                  <>
+                                                  <div className="cartItems"  >
+                                                      <h2 className="cartItems__title">Sus compras:</h2>
+                                                      <div className="cartItems__contenedor">
+                                                      {cartList.map(product =>
+                                                      <div className="aa">
+                                                        <div className="cartItems__contenedor-item" key={product.id}>
+                                                          <img className="cartItems__img" src={product.url}/>
+                                                          <h5 className="cartItems__info-destino"><span>Destino:</span> {product.name}</h5>
+                                                          <h5 className="cartItems__info-precio"><span>Precio Unitario: </span>${product.precio}</h5>
+                                                          <h5 className="cartItems__info-cantidad"><span>Cantidad de pasajes: </span>  {product.cantidad}</h5>
+                                                          <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}> <i class="fas fa-trash-alt"></i></h5> 
+                                                        </div>
+                                                      </div>
+                                                        )}
+                                                      </div>
+                                                      <h2 className="cartItems__total">El precio total es: <span>{precioTotal()}</span></h2>
+                                                      <button onClick={vaciarCarrito} className='cartnot__select'>Vaciar carrito</button>
+                                                      <button  className="cartnot__select"  onClick={generarOrden} >Terminar Compra</button>
+                                                    </div>  
+                                                  {/* </div>)} */}
+                      
                     
-                   
-                </>
-            }
+                  </>
+              }
             </div>
         </div> 
     ) 

@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
+
 export const Item = ({ productos }) =>{
+    console.log(productos.id)
     return(
         <div className="card_contenedor" key={productos.id}>
             <img className='card__img' src= {productos.url} alt="img"/>
@@ -14,7 +16,7 @@ export const Item = ({ productos }) =>{
             <h3 className="card__stock">Pasajes disponibles: <span className='card__stock--span'>{productos.stock}</span></h3>
             
             <Link to ={`/detalle/${productos.id}`}>
-                <button className="card__btn">Ver mas</button>
+                <button className="card__btn">Comprar</button>
             </Link>
     </div> 
     )
