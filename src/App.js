@@ -7,7 +7,6 @@ import './components/CartWidget/CartWidget.css';
 import './components/ItemCount/ItemCount.css';
 import './components/Item/Item.css';
 import './components/Cart/Cart.css';
-import './components/Intercambiabilidad/Intercambiabilidad.css';
 import './components/ItemDetail/ItemDetail.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './Container/ItemListContainer/ItemListContainer';

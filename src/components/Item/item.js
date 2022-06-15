@@ -15,7 +15,7 @@ export const Item = ({ productos }) =>{
             </div>
             <h3 className="card__stock">Pasajes disponibles: <span className='card__stock--span'>{productos.stock}</span></h3>
             
-            <Link to ={`/detalle/${productos.id}`}>
+            <Link to ={`/detalle/${productos.id}`} className="linkRoutes">
                 <button className="card__btn">Comprar</button>
             </Link>
     </div> 

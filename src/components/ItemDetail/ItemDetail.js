@@ -35,10 +35,10 @@ const ItemDetail = ( {producto} ) => {
                     <ItemCount initial={1} stock={producto.stock} onAdd={onAdd}/> 
                     :  
                     <>
-                        <Link to='/productos'>
+                        <Link to='/productos' className="linkRoutes">
                             <button className="btn-grad">Seguir Comprando</button>
                         </Link>
-                        <Link to='/cart'>
+                        <Link to='/cart' className="linkRoutes">
                             <button className="btn-grad">Ir al carrito</button>
                         </Link>
                     </>

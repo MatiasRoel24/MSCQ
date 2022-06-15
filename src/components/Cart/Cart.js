@@ -65,7 +65,7 @@ const Cart = () => {
               {cartList.length === 0 ? 
                   <div className="cartnot">
                       <label className="cartnot__title">Usted no tiene productos en el carrito</label>
-                      <Link to='/productos'>
+                      <Link to='/productos' className="linkRoutes">
                           <button className='cartnot__select'>Seleccionar productos</button>
                       </Link>
                   </div>
