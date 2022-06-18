@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 
-export const Item = ({ productos }) =>{
-    console.log(productos.id)
+export const Item = ( {productos} ) =>{
+   
     return(
         <div className="card_contenedor" key={productos.id}>
             <img className='card__img' src= {productos.url} alt="img"/>

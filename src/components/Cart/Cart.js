@@ -1,17 +1,15 @@
 import { useCartContext } from "../../context/CartContext" 
-import React,{ useEffect, useState } from "react"
-import { addDoc, collection, doc, getFirestore, updateDoc } from "firebase/firestore";
+import React from "react"
+import { addDoc, collection, getFirestore, query, where, documentId, writeBatch, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
 
-    const { cartList,removeItem,precioTotal,vaciarCarrito} = useCartContext()
-    const [productsLength, setProductsLength] = useState(0);
+    const { cartList,removeItem,precioTotal,vaciarCarrito } = useCartContext()
   
-
-
      async function generarOrden (){
-    let orden = {}
+
+      let orden = {}
 
       orden.buyer = {name: 'Matias', email: 'matias.24@live.com', phone: '1164022141'}
       orden.total = precioTotal()
@@ -25,12 +23,30 @@ const Cart = () => {
       }) 
       // CREAR
 
-    const db = getFirestore()
-      const queryCollection = collection(db, 'orders')
-      addDoc(queryCollection, orden)
-      .then(resp => console.log(resp))
-      .catch(err => console.log(err))
-      .finally(() => vaciarCarrito()) 
+      const db = getFirestore()
+        const queryCollection = collection(db, 'orders')
+        addDoc(queryCollection, orden)
+        .then(resp => console.log(resp))
+        .catch(err => console.log(err))
+        .finally(() => vaciarCarrito()) 
+
+        const queryCollectionStock = collection(db, 'items')
+
+        
+        const queryActulizarStock = await query(
+            queryCollectionStock,   
+            where( documentId() , 'in', cartList.map(it => it.id) )            
+        )
+
+        const batch = writeBatch(db)
+
+        await getDocs(queryActulizarStock)
+        .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
+              stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+        }) ))
+        .finally(()=> console.log('actualizado'))
+
+        batch.commit()
     }
 
       // UPDATE
@@ -59,6 +75,13 @@ const Cart = () => {
 
     /* console.log(cartItems) */
 
+
+    
+
+
+       
+
+
     return(
         <div>
             <div> 
@@ -81,16 +104,22 @@ const Cart = () => {
                                                           <h5 className="cartItems__info-destino"><span>Destino:</span> {product.name}</h5>
                                                           <h5 className="cartItems__info-precio"><span>Precio Unitario: </span>${product.precio}</h5>
                                                           <h5 className="cartItems__info-cantidad"><span>Cantidad de pasajes: </span>  {product.cantidad}</h5>
-                                                          <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}> <i class="fas fa-trash-alt"></i></h5> 
+                                                          {/* <button className="btn-count btn-count--red" onClick={removeItem}>-</button>
+                                                          <button className="btn-count" onClick={addToCart}>+</button> */}
+                                                          <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}>X</h5>
+                                                          <div className="precioTotal">
+                                                            <h2 className="cartItems__total">Total: <span>${precioTotal()}</span></h2> 
+                                                          </div>
                                                         </div>
                                                       </div>
                                                         )}
                                                       </div>
-                                                      <h2 className="cartItems__total">El precio total es: <span>{precioTotal()}</span></h2>
-                                                      <button onClick={vaciarCarrito} className='cartnot__select'>Vaciar carrito</button>
-                                                      <button  className="cartnot__select"  onClick={generarOrden} >Terminar Compra</button>
+                                                      <div className="container__btnCart">
+                                                        <button onClick={vaciarCarrito} className='cartnot__select'>Vaciar carrito</button>
+                                                        <button  className="cartnot__select"  onClick={generarOrden} >Terminar Compra </button>
+                                                      </div>
                                                     </div>  
-                                                  {/* </div>)} */}
+                                                  
                       
                     
                   </>

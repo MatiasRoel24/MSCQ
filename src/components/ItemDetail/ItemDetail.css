@@ -9,17 +9,18 @@
 }
 
 .destino__contenedor{
-    padding-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    color: white;
 }
 
 .destino__titulo{
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-size: 3rem;
     margin-bottom: 2rem;
+
 }
 
 .idetail__info{

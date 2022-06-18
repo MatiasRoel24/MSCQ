@@ -26,8 +26,8 @@ function ItemCount({initial,stock,onAdd}) {
         <h2 className='title__count'>Seleccione los pasajes que desee:</h2>
         <p className='contador'>{count}</p>
         <div className='contendor__botones'>
-            <button className='btn-count' onClick={ handleAdd }>+</button>
             <button className='btn-count btn-count--red' onClick={ handleSubstract }>-</button>
+            <button className='btn-count' onClick={ handleAdd }>+</button>
         </div>
             <button className='btn-agregarcarrito' onClick={()=> onAdd(count)}>Agregar al carrito</button>
     </div>

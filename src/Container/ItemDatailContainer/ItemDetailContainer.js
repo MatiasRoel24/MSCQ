@@ -7,25 +7,19 @@ import { getFetch } from "../../helpers/getFetch";
 
 const ItemDetailContainer = () => {
 
+    
     const [producto, setProducto] = useState({})
     const [loading, setloading] = useState(true)    
     const { detalleId } = useParams()
 
-     /* useEffect(() => {
+      useEffect(() => {
             const db = getFirestore()
             const dbQuery = doc(db, 'items', detalleId )
             getDoc(dbQuery)
             .then(resp => setProducto( {id: resp.id, ...resp.data() } ) )
             .catch((err) => console.log(err))
             .finally(() => setloading(false))
-        }, [])  */
-
-     useEffect(() => {
-        getFetch( detalleId )
-        .then(respuesta => setProducto(respuesta))
-        .catch((err) => console.log(err))
-        .finally(() => setloading(false))
-    }, []) 
+        }, [])  
    
     return(
         <div>
