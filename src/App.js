@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import './Container/ItemListContainer/ItemListContainer.css';
 import './components/NavBar/NavBar.css';
+import './components/Inputregion/Inputregion.css';
 import './components/Cart/Cart.css';
 import './components/CartWidget/CartWidget.css';
 import './components/ItemCount/ItemCount.css';
@@ -37,6 +38,7 @@ function App() {
           
             <Route path="/" element = { <Inicio /> } />
             <Route path="/productos" element = { <ItemListContainer /> } />
+            <Route path="/categoria/:id" element = { <ItemListContainer /> } />
             <Route path="/nosotros" element = { <Nosotros /> } />
             <Route path="/detalle/:detalleId" element = { <ItemDetailContainer />} />
             <Route path="/cart" element = { <Cart />} />

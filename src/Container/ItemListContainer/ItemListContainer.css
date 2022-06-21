@@ -1,18 +1,28 @@
+.a{
+  padding-top: 10rem;
+}
+
 .contenedor__ILC{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    gap: 2rem;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    height: 100vh;
-    width: 100%;
     background-image: url(../../../public/assets/bg.jpg);
+    height: 100%;
+    width: 100%;
     background-position:top;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top:10rem;
+    padding-bottom: 8.5rem;
 }
+
+.contenedor__cards{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
 
 .lds-dual-ring {
     display: flex;

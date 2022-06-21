@@ -49,38 +49,6 @@ const Cart = () => {
         batch.commit()
     }
 
-      // UPDATE
-      
-     /*  const queryItem = doc(db,'items', Busco el id del item que quiero cambiar) 
-
-       updateDoc( queryItem, {
-          stock: 99
-      })
-      .then(() => console.log('tarea termi')) */
-
-      /* Actualizar stock 1:30 */
-
-  /* } */
-    /* useEffect(() => {
-        setProductsLength(
-          cartItems?.reduce((previous, current) => previous + current.amount, 0)
-        );
-      }, [cartItems]);
-    
-      const total = cartItems?.reduce(
-        (previous, current) => previous + current.amount * current.precio,
-        0
-      ); */
-    
-
-    /* console.log(cartItems) */
-
-
-    
-
-
-       
-
 
     return(
         <div>
@@ -98,7 +66,7 @@ const Cart = () => {
                                                       <h2 className="cartItems__title">Sus compras:</h2>
                                                       <div className="cartItems__contenedor">
                                                       {cartList.map(product =>
-                                                      <div className="aa">
+                                                      
                                                         <div className="cartItems__contenedor-item" key={product.id}>
                                                           <img className="cartItems__img" src={product.url}/>
                                                           <h5 className="cartItems__info-destino"><span>Destino:</span> {product.name}</h5>
@@ -106,17 +74,17 @@ const Cart = () => {
                                                           <h5 className="cartItems__info-cantidad"><span>Cantidad de pasajes: </span>  {product.cantidad}</h5>
                                                           {/* <button className="btn-count btn-count--red" onClick={removeItem}>-</button>
                                                           <button className="btn-count" onClick={addToCart}>+</button> */}
-                                                          <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}>X</h5>
+                                                          <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}>X</h5> 
                                                           <div className="precioTotal">
                                                             <h2 className="cartItems__total">Total: <span>${precioTotal()}</span></h2> 
                                                           </div>
                                                         </div>
-                                                      </div>
+                                                      
                                                         )}
                                                       </div>
                                                       <div className="container__btnCart">
                                                         <button onClick={vaciarCarrito} className='cartnot__select'>Vaciar carrito</button>
-                                                        <button  className="cartnot__select"  onClick={generarOrden} >Terminar Compra </button>
+                                                        <button  className="cartnot__select"  onClick={generarOrden} >Terminar Compra</button>
                                                       </div>
                                                     </div>  
                                                   
