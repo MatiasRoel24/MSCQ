@@ -1,18 +1,20 @@
 import { useCartContext } from "../../context/CartContext" 
-import React from "react"
+import React, { useState } from "react"
 import { addDoc, collection, getFirestore, query, where, documentId, writeBatch, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
 
     const { cartList,removeItem,precioTotal,vaciarCarrito } = useCartContext()
+    const [dataForm, setDataForm] = useState({ email: '', phone: '', name:'' })
   
      async function generarOrden (){
 
       let orden = {}
 
-      orden.buyer = {name: 'Matias', email: 'matias.24@live.com', phone: '1164022141'}
+      orden.buyer = dataForm
       orden.total = precioTotal()
+
       
       orden.items = cartList.map(cartItem => {
           const id = cartItem.id
@@ -48,6 +50,14 @@ const Cart = () => {
 
         batch.commit()
     }
+
+    const handlerChange = (e) => {
+      setDataForm({
+          ...dataForm,
+          [e.target.name]: e.target.value
+      })
+  }
+
 
 
     return(
@@ -92,6 +102,51 @@ const Cart = () => {
                     
                   </>
               }
+
+{ cartList.length !== 0 &&
+                <center>
+                    <form 
+                        className='form'
+                        onSubmit={generarOrden}         
+                        >
+                        <h5 className="titulo__formulario">Formulario: </h5>                
+                        <input 
+                            className='form-control'
+                            type='text' 
+                            name='name' 
+                            placeholder='Ingrese el nombre' 
+                            value={dataForm.name}
+                            onChange={handlerChange}
+                        /><br />
+                        <input 
+                            className='form-control'
+                            type='text' 
+                            name='phone'
+                            placeholder='Ingrese el telefono' 
+                            value={dataForm.phone}
+                            onChange={handlerChange}
+                        /><br/>
+                        <input 
+                            className='form-control'
+                            type='email' 
+                            name='email'
+                            placeholder='Ingrese el email' 
+                            value={dataForm.email}
+                            onChange={handlerChange}
+                        /><br/>
+                        <input 
+                            className='form-control'
+                            type='email' 
+                            name='email1'
+                            placeholder='repita email' 
+                            value={dataForm.email}
+                            onChange={handlerChange}
+                        /><br/>
+                    </form>
+                </center>
+
+            }
+
             </div>
         </div> 
     ) 

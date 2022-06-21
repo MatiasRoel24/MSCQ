@@ -14,7 +14,7 @@ const Inputregion = () => {
   
   return (
     <div className="contenedor">
-      <form action="" >
+      <form >
           <div className="selectbox" >
             <div className="select" id="select" onClick={desplegar}>
               <div className="contenido-select">
