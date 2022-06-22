@@ -6,7 +6,7 @@
 ##### React js / Firebase / Sweet Alert 2 / FontAwesome / React Router Dom
 
 ## Sitio Web:
-https://beautiful-selkie-beae1e.netlify.app/productos
+https://quiet-malabi-7454d3.netlify.app/cart
 
 ## Available Scripts
 
