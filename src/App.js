@@ -1,13 +1,13 @@
 /* import { useEffect, useState } from 'react'; */
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import './Container/ItemListContainer/ItemListContainer.css';
+import './Container/Cart/Cart.css';
 import './components/NavBar/NavBar.css';
-import './components/Inputregion/Inputregion.css';
-import './components/Cart/Cart.css';
+
 import './components/CartWidget/CartWidget.css';
+import './components/Formulario/Formulario.css';
 import './components/ItemCount/ItemCount.css';
 import './components/Item/Item.css';
-import './components/Cart/Cart.css';
 import './components/ItemDetail/ItemDetail.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './Container/ItemListContainer/ItemListContainer';
@@ -18,7 +18,7 @@ import './components/Nosotros/Nosotros.css'
 import { Inicio } from './components/Inicio/Inicio';
 import { Nosotros } from './components/Nosotros/Nosotros';
 import CartContextProvider from './context/CartContext';
-import Cart from './components/Cart/Cart';
+import Cart from '../src/Container/Cart/Cart';
 
 
 

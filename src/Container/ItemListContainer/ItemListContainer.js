@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../../components/ItemList/ItemList";
-import Inputregion from "../../components/Inputregion/Inputregion";
 import { useParams } from 'react-router-dom'
 import { getFirestore, collection, getDocs,query,where } from 'firebase/firestore'
 
 
 function ItemListContainer() {
-
     
         const [productos, setproductos] = useState([]) 
         const [loading, setloading] = useState(true)
-        const { id } = useParams() 
-
-        
+        const { id } = useParams()    
 
         useEffect(() => {
             const db = getFirestore()    
@@ -25,15 +21,13 @@ function ItemListContainer() {
             .finally(()=>setloading(false))                        
             
         }, [id])  
-        
-
+    
 
         return (
             <div >
                 { loading ? <div className="lds-dual-ring loader__centrado"></div>  // loading true
                     :
                     <div className="contenedor__ILC">
-                        <Inputregion/>
                         <div className="contenedor__cards">
                             <ItemList productos={productos}/>
                         </div>

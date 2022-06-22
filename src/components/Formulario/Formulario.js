@@ -1,13 +1,13 @@
+import React, { useEffect, useState } from 'react'
 import { useCartContext } from "../../context/CartContext" 
-import React, { useState } from "react"
-import { addDoc, collection, getFirestore, query, where, documentId, writeBatch, getDocs } from "firebase/firestore";
-import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { addDoc, collection, getFirestore, query, where, documentId, writeBatch, getDocs } from "firebase/firestore";
 
-const Cart = () => {
+const Formulario = () => {
 
-    const { cartList,removeItem,precioTotal,vaciarCarrito } = useCartContext()
+    const { cartList,precioTotal,vaciarCarrito } = useCartContext()
     const [dataForm, setDataForm] = useState({ email: '', phone: '', name:'' })
+      
   
      async function generarOrden (e){
 
@@ -66,44 +66,8 @@ const Cart = () => {
       })
   }
 
-
-    return(
-        <div>
-            <div> 
-          
-              {cartList.length === 0 ? 
-                  <div className="cartnot">
-                      <label className="cartnot__title">Usted no tiene productos en el carrito</label>
-                      <Link to='/productos' className="linkRoutes">
-                          <button className='cartnot__select'>Seleccionar productos</button>
-                      </Link>
-                  </div>
-              :
-                  <>
-                  
-                    <div className="cartItems" >
-                        <div>
-                            <h2 className="cartItems__title">Carrito <i className="fas fa-shopping-cart icono-carrito"></i></h2>
-                            <div className="cartItems__contenedor">
-                                {cartList.map(product =>
-                                                        <div className="cartItems__contenedor-item" key={product.id}>
-                                                            <img className="cartItems__img" src={product.url}/>
-                                                            <h5 className="cartItems__info-destino"><span>Destino:</span> {product.name}</h5>
-                                                            <h5 className="cartItems__info-precio"><span>Precio Unitario: </span>${product.precio}</h5>
-                                                            <h5 className="cartItems__info-cantidad"><span>Cantidad de pasajes: </span>  {product.cantidad}</h5>
-                                                            <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}>X</h5> 
-                                                            <div className="precioTotal">
-                                                                <button onClick={vaciarCarrito} className='vaciarCarrito'>Vaciar carrito
-                                                                    <i className="fa-solid fa-trash icono-basura"></i>
-                                                                </button>
-                                                                <h2 className="cartItems__total">Total: <span>${precioTotal()}</span></h2> 
-                                                            </div>
-                                                        </div>
-                                                        
-                                                            )}
-                            </div>
-                        </div>
-                        <div className='form'>
+  return (
+        <div className='form'>
                         <form 
                             
                             onSubmit={generarOrden}         
@@ -111,12 +75,13 @@ const Cart = () => {
                             <div className="contenedor__form">
                             <h5 className="titulo__formulario">Ingrese sus datos: </h5>                
                             <input 
-                                className='form-control'
+                                 className='form-control' 
                                 type='text' 
                                 name='name' 
                                 placeholder='Ingrese el nombre' 
                                 value={dataForm.name}
                                 onChange={handlerChange}
+                                
                             />
                             <input 
                                 className='form-control'
@@ -147,14 +112,8 @@ const Cart = () => {
                             <button className="cartnot__select cartnot__select--finalizar"  onClick={generarOrden} >Terminar Compra
                                 <i className="fa-solid fa-bag-shopping icono-bolso" onClick={generarOrden}></i>
                             </button>
-                        </div>
-                    </div>  
-                    
-                  </>
-              }
-            </div>
-        </div> 
-    ) 
-}
+            </div>          
+        )
+    }
 
-export default Cart
+export default Formulario

@@ -18,11 +18,18 @@ function NavBar() {
                         <li className="nav__li nav__link">Inicio</li>
                     </Link> 
                     <Link to='/productos' className="linkRoutes">                    
-                        <li className="nav__li nav__link">Productos</li>
+                        <li className="nav__li nav__link">Todos los destinos</li>
                     </Link> 
+                    <Link to='/categoria/Argentina' className="linkRoutes">
+                        <li className="nav__li nav__link">Argentina</li>                   
+                    </Link>
+                    <Link to='/categoria/Uruguay' className="linkRoutes">
+                        <li className="nav__li nav__link">Uruguay</li>                 
+                    </Link>
                     <Link to='/nosotros' className="linkRoutes">                    
                         <li className="nav__li nav__link">Nosotros</li>
                     </Link> 
+                    
                     </ul>
                 </nav>
 
