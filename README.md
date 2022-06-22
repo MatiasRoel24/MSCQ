@@ -1,6 +1,9 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Aplicacion web desarrolada con React Js por Matias Ezequiel Roel👨‍💻
+### Este proyecto está siendo desarrollado por Matias Ezequiel Roel para el curso Coderhouse ReactJS. Es un ecommerce con carrito de compra.
+
+## Tecnologia Utilizada:
+##### React js / Firebase / Sweet Alert 2 / FontAwesome / React Router Dom
 
 ## Available Scripts
 
