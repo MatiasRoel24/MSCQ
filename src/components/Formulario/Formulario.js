@@ -7,8 +7,6 @@ import { Formik } from "formik";
 const Formulario = () => {
 
     const { cartList,priceTotal,emptyCart } = useCartContext()
-   /*  const [dataForm, setDataForm] = useState({}) */ /*  email: '', phone: '', name:''  */
-      
   
      async function generateOrder (valores){
 
@@ -59,12 +57,6 @@ const Formulario = () => {
 
         batch.commit()
     }
-
-    /* const handlerChange = (e) => {
-      setDataForm({
-          ...dataForm,
-          [e.target.name]: e.target.value
-      }) */
   
 
   return (
@@ -77,20 +69,20 @@ const Formulario = () => {
         validate={(valores) =>{
             let errores = {}
 
-            /* VALIDACION NOMBRES */
+            /* VALIDATION NAME */
             if (!valores.name){
                 errores.name = 'Por favor ingresa un nombre'
             }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)){
                 errores.name = 'El nombre solo puede contener letras y espacios'
             }
 
-            /* VALIDACION NUMERO */
+            /* VALIDATION NUMBER */
 
             if (!valores.phone){
                 errores.phone = 'Por favor ingresa su numero'
             }
 
-            /* VALIDACION CORREO */
+            /* VALIDATION EMAIL */
 
             if (!valores.email){
                 errores.email = 'Por favor ingresa un correo'
