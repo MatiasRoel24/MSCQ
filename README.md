@@ -6,7 +6,7 @@
 ##### React js / Firebase / Sweet Alert 2 / FontAwesome / React Router Dom  / Formik 
 
 ## Sitio Web:
-https://quiet-malabi-7454d3.netlify.app/cart
+https://lovely-crisp-a8dd55.netlify.app/productos
 
 ## Available Scripts
 
