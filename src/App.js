@@ -1,4 +1,3 @@
-/* import { useEffect, useState } from 'react'; */
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import './Container/ItemListContainer/ItemListContainer.css';
 import './Container/Cart/Cart.css';
@@ -25,7 +24,7 @@ import Cart from '../src/Container/Cart/Cart';
 
 function App() { 
 
-/*   console.log(CartContext) */
+
   
   return (
     
@@ -43,7 +42,7 @@ function App() {
             <Route path="/detalle/:detalleId" element = { <ItemDetailContainer />} />
             <Route path="/cart" element = { <Cart />} />
             <Route path="/*" element = { <Navigate to = '/' replace />} /> {/* "/*" -> indica cualquier otra ruta */}
-            {/* Pagina de error 404 */}
+            
 
           </Routes>
 

@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
-import { useCartContext } from '../../context/CartContext'
 
 function ItemCount({initial,stock,onAdd}) {
 
-     const [count, setCount] = useState(initial); 
-    const { addToCart} = useCartContext()
+    const [count, setConut] = useState(initial); 
 
-    const handleAdd = () =>{
+    const handlerAdd = () =>{
         if(count < stock){
-            setCount (count + 1)           
+            setConut (count + 1)           
         }
     }
 
-    const handleSubstract = () =>{
+    const handlerSubtract = () =>{
         if(count > initial){
-            setCount (count - 1)
+            setConut (count - 1)
         }
     } 
 
@@ -22,12 +20,12 @@ function ItemCount({initial,stock,onAdd}) {
     return(
     
     <>   
-    <div className='contendor__count'>
-        <h2 className='title__count'>Seleccione los pasajes que desee:</h2>
+    <div className='contendor__contador'>
+        <h2 className='titulo__contador'>Seleccione los pasajes que desee:</h2>
         <p className='contador'>{count}</p>
         <div className='contendor__botones'>
-            <button className='btn-count btn-count--red' onClick={ handleSubstract }>-</button>
-            <button className='btn-count' onClick={ handleAdd }>+</button>
+            <button className='btn-contador btn-contador--rojo' onClick={ handlerSubtract }>-</button>
+            <button className='btn-contador' onClick={ handlerAdd }>+</button>
         </div>
             <button className='btn-agregarcarrito' onClick={()=> onAdd(count)}>Agregar al carrito</button>
     </div>

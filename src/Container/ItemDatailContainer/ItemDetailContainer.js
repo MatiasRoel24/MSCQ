@@ -3,10 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
-
-
 const ItemDetailContainer = () => {
-
     
     const [producto, setProducto] = useState({})
     const [loading, setloading] = useState(true)    

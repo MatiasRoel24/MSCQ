@@ -5,8 +5,8 @@ import Formulario from "../../components/Formulario/Formulario";
 
 const Cart = () => {
 
-    const { cartList,precioTotal,removeItem,vaciarCarrito } = useCartContext()
-
+    const { cartList,priceTotal,removeItem,emptyCart } = useCartContext()
+    
     return(
         <div>
             <div> 
@@ -33,10 +33,10 @@ const Cart = () => {
                                                             <h5 className="cartItems__info-cantidad"><span>Cantidad de pasajes: </span>  {product.cantidad}</h5>
                                                             <h5 className='cartItems__x' onClick={()=> removeItem(product.id)}>X</h5> 
                                                             <div className="precioTotal">
-                                                                <button onClick={vaciarCarrito} className='vaciarCarrito'>Vaciar carrito
+                                                                <button onClick={emptyCart} className='vaciarCarrito'>Vaciar carrito
                                                                     <i className="fa-solid fa-trash icono-basura"></i>
                                                                 </button>
-                                                                <h2 className="cartItems__total">Total: <span>${precioTotal()}</span></h2> 
+                                                                <h2 className="cartItems__total">Total: <span>${priceTotal()}</span></h2> 
                                                             </div>
                                                         </div>
                                                         
@@ -45,7 +45,6 @@ const Cart = () => {
                         </div>
                         <Formulario />
                     </div>  
-                    
                   </>
               }
             </div>

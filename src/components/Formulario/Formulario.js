@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { useCartContext } from "../../context/CartContext" 
 import Swal from 'sweetalert2'
 import { addDoc, collection, getFirestore, query, where, documentId, writeBatch, getDocs } from "firebase/firestore";
+import { Formik } from "formik";
 
 const Formulario = () => {
 
-    const { cartList,precioTotal,vaciarCarrito } = useCartContext()
-    const [dataForm, setDataForm] = useState({ email: '', phone: '', name:'' })
+    const { cartList,priceTotal,emptyCart } = useCartContext()
+   /*  const [dataForm, setDataForm] = useState({}) */ /*  email: '', phone: '', name:''  */
       
   
-     async function generarOrden (e){
+     async function generateOrder (valores){
 
-      let orden = {}
+      let order = {}
 
-      orden.buyer = dataForm
-      orden.total = precioTotal()
+      order.buyer = valores
+      order.total = priceTotal()
 
       
-      orden.items = cartList.map(cartItem => {
+      order.items = cartList.map(cartItem => {
           const id = cartItem.id
           const nombre = cartItem.name
           const precio = cartItem.precio * cartItem.cantidad
@@ -29,10 +30,10 @@ const Formulario = () => {
 
       const db = getFirestore()
         const queryCollection = collection(db, 'orders')
-        addDoc(queryCollection, orden)
+        addDoc(queryCollection, order)
         .then(resp => console.log(resp))
         .catch(err => console.log(err))
-        .finally(() => vaciarCarrito()) 
+        .finally(() => emptyCart()) 
 
         const queryCollectionStock = collection(db, 'items')
 
@@ -59,60 +60,105 @@ const Formulario = () => {
         batch.commit()
     }
 
-    const handlerChange = (e) => {
+    /* const handlerChange = (e) => {
       setDataForm({
           ...dataForm,
           [e.target.name]: e.target.value
-      })
-  }
+      }) */
+  
 
   return (
-        <div className='form'>
-                        <form 
-                            
-                            onSubmit={generarOrden}         
-                        >
-                            <div className="contenedor__form">
-                            <h5 className="titulo__formulario">Ingrese sus datos: </h5>                
-                            <input 
-                                 className='form-control' 
-                                type='text' 
-                                name='name' 
-                                placeholder='Ingrese el nombre' 
-                                value={dataForm.name}
-                                onChange={handlerChange}
-                                
-                            />
-                            <input 
-                                className='form-control'
-                                type='text' 
-                                name='phone'
-                                placeholder='Ingrese el telefono' 
-                                value={dataForm.phone}
-                                onChange={handlerChange}
-                            />
-                            <input 
-                                className='form-control'
-                                type='email' 
-                                name='email'
-                                placeholder='Ingrese el email' 
-                                value={dataForm.email}
-                                onChange={handlerChange}
-                            />
-                            <input 
-                                className='form-control'
-                                type='email' 
-                                name='email1'
-                                placeholder='repita email' 
-                                value={dataForm.email}
-                                onChange={handlerChange}
-                            />
-                            </div>
-                        </form>
-                            <button className="cartnot__select cartnot__select--finalizar"  onClick={generarOrden} >Terminar Compra
-                                <i className="fa-solid fa-bag-shopping icono-bolso" onClick={generarOrden}></i>
-                            </button>
-            </div>          
+    <Formik
+        initialValues={{
+            email: '',
+            phone: '',
+            name: ''
+        }}
+        validate={(valores) =>{
+            let errores = {}
+
+            /* VALIDACION NOMBRES */
+            if (!valores.name){
+                errores.name = 'Por favor ingresa un nombre'
+            }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)){
+                errores.name = 'El nombre solo puede contener letras y espacios'
+            }
+
+            /* VALIDACION NUMERO */
+
+            if (!valores.phone){
+                errores.phone = 'Por favor ingresa su numero'
+            }
+
+            /* VALIDACION CORREO */
+
+            if (!valores.email){
+                errores.email = 'Por favor ingresa un correo'
+            }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
+                errores.email = 'El correo solo puede contener letras, numeros, puntos, guiones y guion bajo'
+            }
+            /* setDataForm(valores) */
+        return errores;
+
+        }}
+        onSubmit={(valores) =>{
+            
+            console.log('formulario enviado')
+
+            generateOrder(valores)
+        }}
+    >
+        {( {values, errors, touched ,handleSubmit,handleChange,handleBlur} ) =>(
+            <form className="form" onSubmit={handleSubmit}>
+            <div className='contenedor__form'>
+            <h5 className="title__formulario">Ingrese sus datos: </h5>
+                <div className='form-control'>
+                    <label htmlFor="email">Correo</label>
+                    <input 
+                    type="text" 
+                    id="email" 
+                    name="email" 
+                    placeholder="correo@correo.com" 
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    />
+                    {touched.email && errors.email && <div className="error">{errors.email}</div>}                                                                            
+                </div>
+                <div className='form-control'>
+                    <label htmlFor="phone">Numero</label>
+                    <input 
+                    type="text" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="Ingrese su numero" 
+                    value={values.phone}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    />
+                    {touched.phone && errors.phone && <div className="error">{errors.phone}</div>}
+                </div>
+                <div className='form-control'>
+                    <label htmlFor="name">Nombre</label>
+                    <input 
+                    type="text" 
+                    id="name" 
+                    name= "name" 
+                    placeholder="Ingrese su nombre" 
+                    value={values.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    />
+                    {touched.name && errors.name && <div className="error">{errors.name}</div>}
+                </div>
+                <button className="cartnot__select cartnot__select--finalizar" type="submit">Comprar
+                    <i className="fa-solid fa-bag-shopping icono-bolso" ></i>
+                </button>
+            </div>
+        </form>
+        )}
+    </Formik>
+
         )
     }
 
