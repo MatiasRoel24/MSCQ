@@ -1,0 +1,136 @@
+.cartItems__contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    gap: 1.5rem;
+    border-radius: 1rem;
+    height: 50rem;
+    width: 90rem;
+    padding: 2rem;
+    box-shadow: 4px 8px 36px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 8px 36px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 8px 36px 0px rgba(0,0,0,0.75);  
+    margin-bottom: 2rem;
+}
+
+.vaciarCarrito{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.cartItems__contenedor-item{
+    display: flex;
+    gap: 1.3rem;
+    max-width: 82rem;
+}
+
+.cartItems__img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+    margin-right: 2rem;
+}
+
+.cartItems__info-destino{
+    font-size: 2rem;
+    margin-top: 3.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.cartItems__info-destino span{
+    font-weight: bold;
+}
+
+.cartItems__info-precio{
+    font-size: 2rem;
+    margin-top: 3.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.cartItems__info-precio span{
+    font-weight: bold;
+}
+
+.cartItems__info-cantidad{
+    font-size: 2rem;
+    margin-top: 3.5rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.cartItems__info-cantidad span{
+    font-weight: bold;
+}
+
+.cartItems__x{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 3.5rem;
+    margin-left: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color: #e74c3c;
+    cursor: pointer;
+}
+.vaciarCarrito{
+    margin-left: 1rem;
+    color: black;
+    width: 17rem;
+    background-color: #053742;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.cartItems__total{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.container__btnCart{
+    display: flex;
+    gap: 4rem;
+}
+
+
+/* ICONOS */
+.icono-bolso{
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.icono-basura{
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+    color: red;
+}
+
+.icono-carrito{
+    font-size: 2.5rem;
+    
+}

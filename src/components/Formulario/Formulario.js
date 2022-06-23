@@ -63,6 +63,7 @@ const Formulario = () => {
     <Formik
         initialValues={{
             email: '',
+            emailval: '',
             phone: '',
             name: ''
         }}
@@ -89,13 +90,21 @@ const Formulario = () => {
             }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
                 errores.email = 'El correo solo puede contener letras, numeros, puntos, guiones y guion bajo'
             }
-            /* setDataForm(valores) */
+
+            /* VALIDATION CONFIRMATION EMAIL */
+
+            if (!valores.emailval){
+                errores.emailval = 'Por favor ingresa un correo'
+            }else if(valores.emailval != valores.email){
+                errores.emailval = 'El correo NO coincide'
+            }
+            
         return errores;
 
         }}
         onSubmit={(valores) =>{
             
-            console.log('formulario enviado')
+            console.log(valores )
 
             generateOrder(valores)
         }}
@@ -107,15 +116,30 @@ const Formulario = () => {
                 <div className='form-control'>
                     <label htmlFor="email">Correo</label>
                     <input 
-                    type="text" 
+                    type="email" 
                     id="email" 
                     name="email" 
                     placeholder="correo@correo.com" 
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    
                     />
                     {touched.email && errors.email && <div className="error">{errors.email}</div>}                                                                            
+                </div>
+                <div className='form-control'>
+                    <label htmlFor="emailval">Correo validacion</label>
+                    <input 
+                    type="email" 
+                    id="emailval" 
+                    name="emailval" 
+                    placeholder="correo@correo.com" 
+                    value={values.emailval}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    
+                    />
+                    {touched.emailval && errors.emailval && <div className="error">{errors.emailval}</div>}                                                                            
                 </div>
                 <div className='form-control'>
                     <label htmlFor="phone">Numero</label>
