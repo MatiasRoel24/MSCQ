@@ -144,7 +144,7 @@ const Formulario = () => {
                 <div className='form-control'>
                     <label htmlFor="phone">Numero</label>
                     <input 
-                    type="text" 
+                    type="number" 
                     id="phone" 
                     name="phone" 
                     placeholder="Ingrese su numero" 
