@@ -3,7 +3,8 @@
 ### Este proyecto está siendo desarrollado por Matias Ezequiel Roel para el curso Coderhouse ReactJS. Es un ecommerce con carrito de compra.
 
 ##Video del Sitio Web:
-https://user-images.githubusercontent.com/93733821/175997522-0f061d83-1847-490f-8f9a-2107e4100002.mp4
+![Sitio Web](https://user-images.githubusercontent.com/93733821/175997981-735d4556-f096-4d82-bfbd-573814785376.gif)
+
 
 ## Tecnologia Utilizada:
 ##### React js / Firebase / Sweet Alert 2 / FontAwesome / React Router Dom  / Formik 
