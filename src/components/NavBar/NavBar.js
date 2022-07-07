@@ -16,18 +16,15 @@ function NavBar() {
                     <ul className="nav__ul">   
                     <Link to='/' className="linkRoutes">                    
                         <li className="nav__li nav__link">Inicio</li>
-                    </Link> 
+                    </Link>
                     <Link to='/productos' className="linkRoutes">                    
-                        <li className="nav__li nav__link">Todos los destinos</li>
-                    </Link> 
-                    <Link to='/categoria/Argentina' className="linkRoutes">
-                        <li className="nav__li nav__link">Argentina</li>                   
-                    </Link>
-                    <Link to='/categoria/Uruguay' className="linkRoutes">
-                        <li className="nav__li nav__link">Uruguay</li>                 
-                    </Link>
+                        <li className="nav__li nav__link">Vuelos</li>
+                    </Link>  
                     <Link to='/nosotros' className="linkRoutes">                    
                         <li className="nav__li nav__link">Nosotros</li>
+                    </Link> 
+                    <Link to='/contacto' className="linkRoutes">                    
+                        <li className="nav__li nav__link">Contacto</li>
                     </Link> 
                     
                     </ul>

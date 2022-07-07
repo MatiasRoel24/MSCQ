@@ -23,15 +23,26 @@ const Formulario = () => {
 
           return {id,nombre,precio}
       }) 
-      
-      
 
       const db = getFirestore()
         const queryCollection = collection(db, 'orders')
         addDoc(queryCollection, order)
-        .then(resp => console.log(resp))
+        .then(resp => Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `Su compra se realizo con exito.
+            Su numero de pedido es: ${resp.id}`,
+            showConfirmButton: true,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+
+          }))
         .catch(err => console.log(err))
-        .finally(() => emptyCart()) 
+        .finally(() =>emptyCart())
 
         const queryCollectionStock = collection(db, 'items')
 
@@ -47,13 +58,7 @@ const Formulario = () => {
         .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
               stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
         }) ))
-        .finally(()=> Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Su compra se realizo con exito',
-            showConfirmButton: false,
-            timer: 2000
-          }))
+        
 
         batch.commit()
     }
@@ -103,9 +108,6 @@ const Formulario = () => {
 
         }}
         onSubmit={(valores) =>{
-            
-            console.log(valores )
-
             generateOrder(valores)
         }}
     >

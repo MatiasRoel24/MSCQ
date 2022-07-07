@@ -5,15 +5,15 @@ import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
     
-    const [producto, setProducto] = useState({})
+    const [product, setProduct] = useState({})
     const [loading, setloading] = useState(true)    
-    const { detalleId } = useParams()
+    const { detailId } = useParams()
 
       useEffect(() => {
             const db = getFirestore()
-            const dbQuery = doc(db, 'items', detalleId )
+            const dbQuery = doc(db, 'items', detailId )
             getDoc(dbQuery)
-            .then(resp => setProducto( {id: resp.id, ...resp.data() } ) )
+            .then(resp => setProduct( {id: resp.id, ...resp.data() } ) )
             .catch((err) => console.log(err))
             .finally(() => setloading(false))
         }, [])  
@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
             { loading ? <div className="lds-dual-ring loader__centrado"></div>  // loading true
                     :
                     <div className="contenedor__ILC">
-                        <ItemDetail producto= {producto}/>
+                        <ItemDetail product= {product}/>
                     </div>
             } 
         </div>

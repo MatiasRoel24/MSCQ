@@ -11,6 +11,37 @@
     background-size: cover;
     padding-top:10rem;
     padding-bottom: 9.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor__items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav__li{
+  list-style: none;
+}
+
+.navlink--destinos{
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: #053742;
+  border: 1px solid #053742;
+  height: 3rem;
+  width: 12rem;
+  border-radius: 0.5rem;
+}
+
+.navlink--destinos:hover{
+  color: #8FC93A;
 }
 
 .contenedor__cards{
