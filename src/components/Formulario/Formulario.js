@@ -141,8 +141,9 @@ const Formulario = () => {
           <div className="contenedor__form">
             <h5 className="title__formulario">Ingrese sus datos: </h5>
             <div className="form-control">
-              <label htmlFor="email">Correo</label>
+              <label htmlFor="email">Correo:</label>
               <input
+                className="input"
                 type="email"
                 id="email"
                 name="email"
@@ -156,8 +157,9 @@ const Formulario = () => {
               )}
             </div>
             <div className="form-control">
-              <label htmlFor="emailval">Correo validacion</label>
+              <label htmlFor="emailval">Correo validacion:</label>
               <input
+                className="input"
                 type="email"
                 id="emailval"
                 name="emailval"
@@ -171,8 +173,9 @@ const Formulario = () => {
               )}
             </div>
             <div className="form-control">
-              <label htmlFor="phone">Numero</label>
+              <label htmlFor="phone">Numero:</label>
               <input
+                className="input"
                 type="number"
                 id="phone"
                 name="phone"
@@ -186,8 +189,9 @@ const Formulario = () => {
               )}
             </div>
             <div className="form-control">
-              <label htmlFor="name">Nombre</label>
+              <label htmlFor="name">Nombre:</label>
               <input
+                className="input"
                 type="text"
                 id="name"
                 name="name"

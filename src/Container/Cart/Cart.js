@@ -21,14 +21,12 @@ const Cart = () => {
           </div>
         ) : (
           <>
+            <h2 className="cartItems__title">
+              Carrito <i className="fas fa-shopping-cart icono-carrito"></i>
+            </h2>
             <div className="cartItems">
-              <div>
-                <h2 className="cartItems__title">
-                  Carrito <i className="fas fa-shopping-cart icono-carrito"></i>
-                </h2>
                 <Carlist />
-              </div>
-              <Formulario />
+                <Formulario />
             </div>
           </>
         )}

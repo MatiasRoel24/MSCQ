@@ -6,7 +6,7 @@ const Cartlist = () => {
   return (
     <div className="cartItems__contenedor">
       {cartList.map((product) => (
-        <div className="cartItems__contenedor-item" key={product.id}>
+        <div className="cartItem__contenedor" key={product.id}>
           <img className="cartItems__img" src={product.url} />
           <h5 className="cartItems__info-destino">
             <span>Destino:</span> {product.name}
@@ -20,17 +20,20 @@ const Cartlist = () => {
           <h5 className="cartItems__x" onClick={() => removeItem(product.id)}>
             X
           </h5>
-          <div className="precioTotal">
+          
+        </div>
+      ))}
+
+        <div className="precioTotal">
+            
             <button onClick={emptyCart} className="vaciarCarrito">
               Vaciar carrito
               <i className="fa-solid fa-trash icono-basura"></i>
             </button>
-            <h2 className="cartItems__total">
+            <div className="cartItems__total">
               Total: <span>${priceTotal()}</span>
-            </h2>
-          </div>
+            </div>
         </div>
-      ))}
     </div>
   );
 };
