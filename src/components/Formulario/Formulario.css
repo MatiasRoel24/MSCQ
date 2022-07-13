@@ -1,37 +1,37 @@
 /* --FORMULARIO-- */
 
-.form{
-    padding-top:2rem ;
-    background-color: white;
-    height: 50rem;
-    margin-top: 6rem;
-    border-radius: 0.5rem;
-    margin-bottom: 2rem;
-    width: 40rem;
+.form {
+  padding-top: 2rem;
+  background-color: white;
+  height: 50rem;
+  margin-top: 6rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  width: 40rem;
 }
 
-.contenedor__form{
-    padding: 2rem;
+.contenedor__form {
+  padding: 2rem;
 }
 
-.title__formulario{
-    font-size: 3rem;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 1rem;
-    text-align: center;
+.title__formulario {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.form-control{
-    width: 100%;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-    margin-bottom: 1rem;
-    border: 1px solid #1f53c5;
-    font-size: 1.8rem;
+.form-control {
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  border: 1px solid #1f53c5;
+  font-size: 1.8rem;
 }
 
-.error{
-    border: 1px solid red;
+.error {
+  border: 1px solid red;
 }

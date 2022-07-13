@@ -1,31 +1,20 @@
-.inicio {
-  height: 100vh;
-  width: 100%;
-  padding-top: 20rem;
-  background-image: url(../../../public/assets/bg.jpg);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .inicio__contenedor {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 5rem;
   width: 100%;
   color: white;
   font-weight: bold;
-  margin-top: 10rem;
+  height: calc(100vh - 6.3rem - 6.5rem);
 }
 
 .inicio__titutlo {
-  font-size: 10rem;
+  font-size: 8rem;
 }
 
 .inicio__subtitutlo {
-  font-size: 5rem;
+  font-size: 4rem;
   padding: 2rem;
   background-color: black;
   border-radius: 0.5rem;
@@ -33,11 +22,10 @@
 
 .animate__animated.animate__shakeX {
   --animate-duration: 1.5s;
-  
 }
 
-.logo-avion{
-    margin-left: 0.5rem; 
+.logo-avion {
+  margin-left: 0.5rem;
 }
 
 .inicio__btn {
@@ -58,4 +46,30 @@
   background-color: white;
 }
 
+@media (max-width: 768px) {
+  .inicio__titutlo {
+    font-size: 10rem;
+  }
+  .inicio__subtitutlo {
+    font-size: 4rem;
+    padding: 2rem;
+    background-color: black;
+    border-radius: 0.5rem;
+    width: 90%;
+    text-align: center;
+  }
+}
 
+@media (max-width: 576px) {
+  .inicio__titutlo {
+    font-size: 4rem;
+  }
+  .inicio__subtitutlo {
+    font-size: 4rem;
+    width: 90%;
+    text-align: center;
+    padding: 2rem;
+    background-color: black;
+    border-radius: 0.5rem;
+  }
+}

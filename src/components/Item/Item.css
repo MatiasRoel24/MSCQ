@@ -1,71 +1,69 @@
-.card_contenedor{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 8px;
-    padding: 0 1rem;
-    width: 40rem;
-    height: 55rem;
-    margin: 2rem auto;
-    background-color: white;
-    
+.card_contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 1rem;
+  width: 40rem;
+  height: 55rem;
+  margin: 2rem auto;
+  background-color: white;
 }
-.card_contenedor:hover{
-    transition: .3s;
-    box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.37);
-    -webkit-box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.37);
-    -moz-box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.37);
-}
-
-.card__img{
-    width: 40rem;
-    height: 35rem;
+.card_contenedor:hover {
+  transition: 0.3s;
+  box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.37);
 }
 
-.card__title{
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-top: 1rem;
+.card__img {
+  width: 40rem;
+  height: 35rem;
 }
 
-.terreno__contenedor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+.card__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
-.icono{
-    font-size: 1.8rem;
+.terreno__contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-
-.card__terreno{
-    font-weight: 500;
-    font-size: 2rem;
+.icono {
+  font-size: 1.8rem;
 }
 
-.card__stock{
-    margin-top: 0.2rem;
-    font-size: 1.5rem;
-    font-weight: bold;
+.card__terreno {
+  font-weight: 500;
+  font-size: 2rem;
 }
 
-.card__stock--span{
-    color: green;
+.card__stock {
+  margin-top: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.card__btn{
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    color: white;
-    background-color: #053742;
-    border: 1px solid #053742;
-    padding: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    width: 10rem;
+.card__stock--span {
+  color: green;
+}
+
+.card__btn {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  padding: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  width: 10rem;
 }
