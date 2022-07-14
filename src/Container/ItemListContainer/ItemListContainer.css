@@ -53,10 +53,12 @@
   border-radius: 0.5rem;
 }
 
-.navlink--destinos:hover {
-  transition: 0.3s;
-  color: black;
-  background-color: white;
+@media (min-width: 992px) {
+  .navlink--destinos:hover {
+    transition: 0.3s;
+    color: black;
+    background-color: white;
+  }
 }
 
 .contenedor__cards {
